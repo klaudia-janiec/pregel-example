@@ -6,6 +6,8 @@ object App {
     val sparkConf: SparkConf = new SparkConf().setMaster("local").setAppName("Plggdes")
     val sc = new SparkContext(sparkConf)
 
+    sc.setCheckpointDir(".")
+
     val islands = sc.parallelize(
       Array(
         (1L, "1"),
